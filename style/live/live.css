@@ -1,0 +1,733 @@
+html,body{
+	font-size: 12px ;
+}
+
+#videoCont{
+	position: relative;
+	margin: 15px auto 0;
+}
+#my-video{
+	position: relative;
+}
+#flash{
+	display: inline-block;
+	position: absolute;
+	left:0;
+	top: 0;
+	z-index: 10;
+}
+.fl-left {
+	float: left;
+}
+
+.fl-right {
+	float: right;
+}
+
+.content {
+	width: 100%;
+	height: calc(100% - 10px);
+	margin-top: 10px;
+}
+
+.live_header {
+	width: 1480px;
+	height: 98px;
+	overflow: hidden;
+	margin: 0 auto;
+	border: 1px solid #c0c5d1;
+}
+
+.lecturer_Avatar {
+	width: 100px;
+	height: 100px;
+	margin-left: 20px;
+	line-height: 100px;
+	position: relative;
+}
+
+.lecturer_Avatar>img {
+	position: absolute;
+	top: 50%;
+	margin-top: -35px;
+	left: 50%;
+	margin-left: -35px;
+	width: 70px;
+	-webkit-border-radius: 70px;
+	-moz-border-radius: 70px;
+	border-radius: 70px;
+}
+
+.live_content {
+	width: calc(100% - 320px - 7px);
+}
+
+.lecturer_Info {
+	margin-left: 15px;
+	font-size: 14px;
+}
+
+.lecturer_Info>.lecturer_name {
+	font-size: 18px;
+	margin-top: 15px;
+	height: 30px;
+	overflow: hidden;
+}
+
+.lecturer_Info>.lecturer_name>span {
+	display: inline-block;
+}
+
+.lecturer_Info>.lecturer_name>span:not(.lecturer_department) {
+	line-height: 30px;
+}
+
+.lecturer_Info>.lecturer_name>.lecturer_department {
+	font-size: 14px;
+	height: 12px;
+	padding: 2px 10px;
+	color: #2ea8fe;
+	line-height: 14px;
+	text-align: center;
+	-webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+	border-radius: 18px;
+	border: 1px solid #2ea8fe;
+	margin-left: 15px;
+}
+
+.lecturer_Info>.lecturer_belong {
+	height: 18px;
+	line-height: 18px;
+	position: relative;
+}
+
+.lecturer_Info>.lecturer_belong>img {
+	display: inline-block;
+	height: 12px;
+	margin-top: -2px;
+}
+
+.lecturer_Info>.lecturer_belong>span {
+	display: inline-block;
+	margin-left: 12px;
+	color: #9097a7;
+}
+
+.lecturer_Info>.lecturer_specialty {
+	color: #9097a7;
+}
+
+.lecturer_Info>.lecturer_belong,
+.lecturer_Info>.lecturer_specialty {
+	margin-top: 2px;
+}
+
+.c_right {
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border: 1px solid #c0c5d1;
+}
+
+.c_right>.lecturer_summary {
+	width: 100%;
+	height: 113px;
+	overflow: hidden;
+}
+
+.c_right>.lecturer_summary>p {
+	margin: 10px 10px 0 10px;
+	line-height: 20px;
+	font-size: 14px;
+	height: auto;
+}
+
+
+/* tab选项卡  */
+
+.tab {
+	position: relative;
+	width: 320px;
+	height: calc(100% - 113px);
+	font-size: 14px;
+	/*border-bottom: 1px solid red;*/
+}
+
+.tab-nav {
+	height: 39px;
+	overflow: hidden;
+	border-bottom: 1px solid #c0c5d1;
+	border-top: 1px solid #c0c5d1;
+	/*background: #f5f5f5;*/
+}
+
+.tab-nav a {
+	display: block;
+	float: left;
+	width: 50%;
+	height: 39px;
+	line-height: 39px;
+	text-align: center;
+	text-decoration: none;
+	color: #000;
+}
+
+.tab-nav a.current {
+	background: #72ade7;
+	color: white;
+}
+
+.tab-con {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	/*background: #80b600;*/
+}
+
+.j-tab-con {
+	height: 100%;
+}
+
+.tab-con-item {
+	display: none;
+	width: 320px;
+	color: #000;
+	height: 100%;
+}
+
+.member_info {
+	height: 94%;
+	overflow: auto;
+}
+
+.member_info>p {
+	width: 100%;
+	height: 26px;
+	line-height: 24px;
+	/*vertical-align: middle;*/
+	/*border: 1px solid red;*/
+	font-size: 14px;
+	position: relative;
+}
+
+.member_info>p img,
+.member_info>p span {
+	vertical-align: middle;
+}
+
+.member_info>.manage {
+	margin-top: 15px;
+}
+
+.member_info>p:not(.manage) {
+	margin-top: 10px;
+}
+
+.member_info>p>.member_info_speak,
+.member_info>p>.manage_speak {
+	position: absolute;
+	right: 15px;
+	top: 5px;
+}
+
+.member_info>p>.member_info_avatar,
+.member_info>p>.manage_avatar {
+	margin-left: 10px;
+	width: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+.member_info>p>.member_info_name {
+	margin-left: 12px;
+}
+
+.member_info>p>.manage_name {
+	margin-left: 5px;
+}
+
+.member_info>p>.member_info_speak {
+	cursor: pointer;
+}
+
+.tab-con>.j-tab-con>.member_chat>.member_chat_con {
+	width: 100%;
+	height: calc(100% - 40px - 35px - 190px);
+	overflow: auto;
+	padding-bottom: 2%;
+}
+
+.tab-con>.j-tab-con>.member_chat>.member_chat_toolbar {
+	width: 100%;
+	height: 35px;
+	background-color: #e8f1f8;
+	position: relative;
+}
+
+.member_chat_toolbar>.emotion,
+.member_chat_toolbar>.screen_shot,
+.member_chat_toolbar>.select_img,
+.member_chat_toolbar>.hands,
+.member_chat_toolbar>.select_msg {
+	position: absolute;
+	top: 10px;
+	cursor: pointer;
+}
+
+.member_chat_toolbar>.emotion {
+	left: 20px;
+}
+
+
+/*表情*/
+
+#facebox {
+	overflow: auto;
+	height: 90px;
+	width: 100%;
+	position: absolute;
+	z-index: 100;
+	top: -90px;
+	-webkit-box-shadow: 0 -1px 1px #898C95;
+	-moz-box-shadow: 0 -1px 1px #898C95;
+	box-shadow: 0 -1px 1px #898C95;
+	background-color: white;
+}
+
+.member_chat_toolbar>.screen_shot {
+	left: 36px;
+}
+
+.member_chat_toolbar>.select_img {
+	left: 55px;
+	top: 9px;
+}
+
+.member_chat_toolbar>.select_img>.uploadImage {
+	display: inline-block;
+	color: transparent;
+	width: 17px;
+	height: 17px;
+	overflow: hidden;
+	cursor: pointer;
+	background-image: url('../../images/live/upload.png');
+	background-repeat: no-repeat;
+	background-position: center
+}
+
+
+/*兼容ie9及以下版本添加的css*/
+
+.imghead {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
+}
+
+.member_chat_toolbar>.hands {
+	right: 40px;
+}
+
+.member_chat_toolbar>.hands>span {
+	position: absolute;
+	display: none;
+}
+
+.member_chat_toolbar>.hands>.hands_hover_con {
+	width: 60px;
+	height: 22px;
+	font-size: 12px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	top: -38px;
+	left: -23px;
+	text-align: center;
+	line-height: 22px;
+	border: 1px solid #c0c5d1;
+}
+
+.member_chat_toolbar>.hands>.hands_triangle {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #cbd1dc;
+	/*#cbd1dc*/
+	top: -15px;
+	left: 3px;
+}
+
+.member_chat_toolbar>.hands>.hands_triangle_mask {
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid white;
+	top: -16px;
+	left: 4px;
+}
+
+.member_chat_toolbar>.hands:hover .hands_hover_con,
+.member_chat_toolbar>.hands:hover .hands_triangle,
+.member_chat_toolbar>.hands:hover .hands_triangle_mask {
+	display: block;
+}
+
+.member_chat_toolbar>.select_msg {
+	right: 10px;
+}
+
+.tab-con>.j-tab-con>.member_chat>.member_chat_edit {
+	width: 100%;
+	height: 190px;
+	overflow: hidden;
+}
+
+.tab-con>.j-tab-con>.member_chat>.member_chat_edit>#msgIpt {
+	width: 308px;
+	height: 130px;
+	padding: 5px 5px 0;
+	outline: none;
+	overflow: auto;
+}
+
+.tab-con>.j-tab-con>.member_chat>.member_chat_edit>.sendBtn_box {
+	width: 100%;
+	height: 50px;
+	overflow: hidden;
+}
+
+.tab-con>.j-tab-con>.member_chat>.member_chat_edit>.sendBtn_box #sendBtn {
+	width: 70px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	margin-top: 10px;
+	color: white;
+	background-color: #2ea8fe;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-left: 238px;
+	cursor: pointer;
+}
+
+
+/*聊天消息样式*/
+
+#msgs>div {
+	font-size: 14px;
+	margin: 10px 5px 5px 5px;
+}
+
+#msgs>div>p>span.userName,
+#msgs>div>p>span.chatTime {
+	color: #2ea8fe;
+}
+
+#msgs>div>p>span.userName,
+#msgs>div>p.msgCont {
+	margin-left: 5px;
+}
+
+#msgs>div>p>span.chatTime {
+	margin-left: 15px;
+}
+
+#msgs>div>p.msgCont {
+	margin-top: 5px;
+	line-height: 20px;
+}
+
+td a img {
+	display: block;
+}
+
+.style22 {
+	color: #666666;
+}
+
+.style23 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.style31 {
+	font-family: "Arial";
+	color: #999999;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.style34 {
+	font-family: "Arial";
+}
+
+.style24 {
+	font-size: 11px;
+	color: #999999;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.style62 {
+	font-size: 12px;
+	color: #999999;
+	font-family: "myriad Pro";
+}
+
+.style67 {
+	font-family: "myriad Pro";
+	color: #999999;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.style69 {
+	font-family: "Arial";
+	color: #999999;
+	font-weight: bold;
+}
+
+.style1 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #999999;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.style3 {
+	font-family: "Arial";
+	font-size: 12px;
+	line-height: normal;
+	height: 10px;
+}
+
+.style71 {
+	font-family: "myriad Pro";
+}
+
+.style73 {
+	font-family: Arial;
+	color: #999999;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.style74 {
+	font-size: 12px;
+	color: #999999;
+	font-family: Arial;
+}
+
+.style75 {
+	font-family: Arial;
+	color: #CCC;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.style76 {
+	font-size: 12px;
+	font-family: Arial;
+	color: #FF0000;
+}
+
+.style81 {
+	font-family: Arial;
+}
+
+.style82 {
+	color: #999999;
+	font-size: 12px;
+}
+
+.style83 {
+	font-size: 12px;
+	font-weight: bold;
+	color: #999999;
+}
+
+
+/*滚动条样式*/
+
+::-webkit-scrollbar {
+	width: 6px;
+	/*对垂直流动条有效*/
+	/*height: 13px;!*对水平流动条有效*!*/
+}
+
+
+/*CSS的坐标系，左上角为(0,0),往右往下为增加，往上往左为减少*/
+
+
+/*显示滚动条上方的渐增按钮*/
+
+::-webkit-scrollbar-button:start:decrement,
+
+/*显示滚动条上方的渐减按钮*/
+
+::-webkit-scrollbar-button:end:increment {
+	display: none;
+}
+
+
+/* 垂直滚动条的第一层轨道*/
+
+::-webkit-scrollbar-track:vertical {
+	background-color: white;
+}
+
+
+/* 垂直滚动条的滑动块 */
+
+::-webkit-scrollbar-thumb:vertical {
+	background-color: #a2bdcb;
+	border-radius: 6px;
+}
+
+
+
+
+.video-js .vjs-big-play-button{
+	display: none;
+}
+.vjs-control-bar{
+	height: 36px !important;
+
+}
+
+
+.video-js .vjs-progress-control{
+	position: absolute;
+	width: 100% !important;
+	height: 10px;
+	left: 0;
+	top: -7px;
+}
+.video-js .vjs-progress-control .vjs-progress-holder{
+	margin: 0 ;
+}
+
+.vjs-load-progress,.vjs-load-progress>div,.vjs-play-progress,.video-js .vjs-slider{
+	height: 4px;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+.video-js .vjs-slider-bar{
+	max-width: calc(100% - .8em) ;
+	max-width: calc(100% - .65em)\0 ;
+}
+.video-js .vjs-play-progress:before{
+	right: -.8em;
+}
+@-moz-document url-prefix(){
+	.video-js .vjs-play-progress:before{
+		top: -.2em;
+		right: -.8em;
+	}
+	.vjs-play-control,.video-js .vjs-fullscreen-control{
+		top: 2px;
+	}
+	.video-js .vjs-slider-bar{
+		max-width: calc(100% - .6em) ;
+	}
+}
+.live_volume{
+	width: 120px;
+	height: 36px;
+	position: absolute;
+	right: 50px;
+	top: 0;
+}
+.live_volume_box{
+	position: absolute;
+	width: 20px;
+	height: 36px;
+}
+.live_volume>div>img{
+	position: absolute;
+	top: 11px;
+	left: 2px;
+}
+.live_volume>div.drag{
+	width: 80px;
+	height: 8px;
+	position: relative;
+	overflow: hidden;
+	top: 14px;
+	left: 25px;
+}
+.live_volume>div>.dragGroove,
+.live_volume>div>.bgDragGroove{
+	position: absolute;
+	width: 80px;
+	height: 2px;
+	top: 3px;
+}
+.live_volume>div>.dragGroove{
+	background-color: #b0b0b0;
+}
+.live_volume>div>.dragGroove>img{
+	position: absolute;
+	z-index: 6;
+	top: -3px;
+	left: 0;
+}
+.live_volume>div>.bgDragGroove{
+	background-color: #2ea8fe;
+	z-index: 5;
+}
+
+.video-js button{
+	outline: none;
+}
+/*播放按钮的样式重写*/
+.video-js .vjs-big-play-button{
+	width: 2em;
+	height: 2em;
+	-webkit-border-radius: 3em;
+	-moz-border-radius: 3em;
+	border-radius: 2em;
+	line-height: 2em;
+	margin-top: -1em;
+}
+
+.vjs-fullscreen-control{
+	border-left: 2px solid #38383d !important;
+}
+.vjs-control-video-next{
+	cursor: pointer;
+}
+
+.vjs-button>.vjs-icon-placeholder:before{
+	line-height: 2.0;
+}
+.vjs-fullscreen-control {
+	position: absolute !important;
+	top: 0;
+	right: 0;
+}
+@-moz-document url-prefix(){
+	.vjs-play-control,.video-js .vjs-fullscreen-control{
+		top: 0;
+	}
+	.vjs-button>.vjs-icon-placeholder:before{
+		line-height: 2.3;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <title>直播</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--css的样式重置表：-->
+    <link rel="stylesheet" type="text/css" href="style/reset.css"/>
+    <link rel="stylesheet" href="style/public.css">
+    <link href="style/live/video-js.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/live/live.css">
+    <script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="script/videojs_common/video.min.js"></script>
+    <script src="script/videojs_common/zh-CN.js"></script>
+    <!--[if IE 9]>
+    <style>
+        .vjs-control-video-currentTime {
+            margin-top: 1.3em;
+        }
+
+        .video-js .vjs-progress-control {
+            top: -4px;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body>
+
+<div class="content">
+    <div class="fl-left live_content">
+        <div class="live_header">
+
+        </div>
+        <div id="videoCont">
+            <video id="my-video" class="video-js vjs-default-skin" controls preload="auto">
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                </p>
+            </video>
+        </div>
+
+    </div>
+    <div class="fl-left" style="width: 320px;margin-left: -65px">
+        <div class=" c_right">
+            <div class="lecturer_summary">
+                <!--直播的公告之类的文字-->
+                <p></p>
+            </div>
+            <div class="tab" id="tab" style="background-color: white">
+                <div class="tab-nav j-tab-nav">
+                    <a href="javascript:void(0);" class="current member_number">成员人数（<span
+                            class="t_number">0</span>）</a>
+                    <a href="javascript:void(0);">讨论</a>
+                </div>
+                <div class="tab-con">
+                    <div class="j-tab-con">
+                        <div id="member_info" class="tab-con-item member_info" style="display:block;">
+
+                        </div>
+                        <div class="tab-con-item member_chat">
+                            <div class="member_chat_con megsArea">
+                                <div id="msgs"></div>
+                            </div>
+                            <div class="member_chat_toolbar">
+                                <img class="emotion" src="images/live/emotion.png" alt="">
+                                <!--<img  class="screen_shot" src="../images/live/cut.png" alt="">-->
+                                <div class="select_img">
+                                    <label for="upload_file" class="uploadImage">上传图片</label>
+                                    <input accept="image/*" id="upload_file" type="file" hidden="hidden">
+                                </div>
+                                <!--<div class="hands">-->
+                                <!--<img src="../images/live/hands.png" alt="">-->
+                                <!--<span class="hands_hover_con">举手发言</span>-->
+                                <!--<span class="hands_triangle"></span>-->
+                                <!--<span class="hands_triangle_mask"></span>-->
+                                <!--</div>-->
+                                <!--<img class="select_msg" src="../images/live/select_msg.png" alt="" >-->
+                            </div>
+                            <div class="member_chat_edit">
+                                <div class="send_msg_con msgIpt" id="msgIpt" contenteditable="true"></div>
+                                <div class="sendBtn_box">
+                                    <div id="sendBtn" class="sendBtn">发 送</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="script/videojs_common/drag.js"></script>
+<script type="text/javascript" src="script/live/jQuery.rTabs.js"></script>
+<script type="text/javascript" src="script/live/cursorPosition.js"></script>
+<script type="text/javascript" src="script/live/jquery.qqFace.js"></script>
+<script>
+
+
+    function myBrowser() {
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        var isOpera = userAgent.indexOf("Opera") > -1;
+        if (isOpera) {
+            return "Opera"
+        }
+        if (userAgent.indexOf("Firefox") > -1) {
+            return "FF";
+        }
+        if (userAgent.indexOf("Chrome") > -1) {
+            return "Chrome";
+        }
+        if (userAgent.indexOf("Safari") > -1) {
+            return "Safari";
+        }
+        if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+            return "IE";
+        }
+    }
+
+    function flashChecker() {
+        var hasFlash = 0;　　　　 // 是否安装了flash
+        var flashVersion = 0;　　 // flash版本
+        if (document.all) {
+            var swf = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+            if (swf) {
+                hasFlash = 1;
+                VSwf = swf.GetVariable("$version");
+                flashVersion = parseInt(VSwf.split(" ")[1].split(",")[0]);
+            }
+        } else {
+            if (navigator.plugins && navigator.plugins.length > 0) {
+                var swf = navigator.plugins["Shockwave Flash"];
+                if (swf) {
+                    hasFlash = 1;
+                    var words = swf.description.split(" ");
+                    for (var i = 0; i < words.length; ++i) {
+                        if (isNaN(parseInt(words[i]))) continue;
+                        flashVersion = parseInt(words[i]);
+                    }
+                }
+            }
+        }
+        return {f: hasFlash, v: flashVersion};
+    }
+    if (myBrowser() == 'Chrome' && !flashChecker().f) {
+        $('#videoCont').append('<a id="flash"  href="http://www.adobe.com/go/getflashplayer"><img style="width: 100%;height: 100%" src="../images/live/flash.png" alt=""></a>');
+    }
+
+</script>
+<script src="https://cdn.bootcss.com/videojs-flash/2.0.0/videojs-flash.min.js"></script>
+<script>videojs.options.flash.swf = "script/videojs_common/video-js.swf";</script>
+<script src="script/live/live.js"></script>
+
+</body>
+</html>
+
